@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Automation Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #f4f7f8;
+      color: #333;
+      padding: 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+    section {
+      background: white;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #34495e;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+      cursor: pointer;
+      transform: scale(1.2);
+      vertical-align: middle;
+    }
+    #tempHum {
+      text-align: center;
+      margin-top: 40px;
+      font-weight: bold;
+      font-size: 18px;
+      background: #d0e6f7;
+      color: #1e6fa3;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(30, 111, 163, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Home Automation Dashboard</h1>
+
+  <section id="bedroom1">
+    <h2>Bedroom 1</h2>
+    <label><input type="checkbox" /> Air Conditioner</label>
+    <label><input type="checkbox" /> Fan</label>
+    <label><input type="checkbox" /> Lamp</label>
+  </section>
+
+  <section id="bedroom2">
+    <h2>Bedroom 2</h2>
+    <label><input type="checkbox" /> Air Conditioner</label>
+    <label><input type="checkbox" /> Fan</label>
+    <label><input type="checkbox" /> Lamp</label>
+  </section>
+
+  <section id="kitchen">
+    <h2>Kitchen</h2>
+    <label><input type="checkbox" /> Lamp</label>
+    <label><input type="checkbox" disabled checked /> Smoke Sensor (Always On)</label>
+    <label><input type="checkbox" /> Fan</label>
+    <label><input type="checkbox" disabled checked /> Refrigerator (Always On)</label>
+  </section>
+
+  <section id="hall">
+    <h2>Hall</h2>
+    <label><input type="checkbox" /> TV</label>
+    <label><input type="checkbox" /> Fan</label>
+    <label><input type="checkbox" /> Lamp</label>
+    <label><input type="checkbox" disabled checked /> Refrigerator (Always On)</label>
+  </section>
+
+  <div id="tempHum">
+    Temperature: <span id="temp">--</span> °C | Humidity: <span id="hum">--</span> %
+  </div>
+
+  <script>
+    function updateTempHum() {
+      const temp = (20 + Math.random() * 10).toFixed(1);
+      const hum = (40 + Math.random() * 30).toFixed(1);
+      document.getElementById('temp').textContent = temp;
+      document.getElementById('hum').textContent = hum;
+    }
+    updateTempHum();
+    setInterval(updateTempHum, 5000);
+  </script>
+
+</body>
+</html>
